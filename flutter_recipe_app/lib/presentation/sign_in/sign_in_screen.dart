@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/big_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/input_field.dart';
+import 'package:flutter_recipe_app/core/presentation/components/big_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/input_field.dart';
 import 'package:flutter_recipe_app/ui/color_styles.dart';
 import 'package:flutter_recipe_app/ui/text_styles.dart';
 

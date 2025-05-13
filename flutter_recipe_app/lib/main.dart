@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/big_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/filter_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/input_field.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/medium_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/rating_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/small_button.dart';
-import 'package:flutter_recipe_app/core/data/di/domain/presentation/components/two_tab.dart';
+import 'package:flutter_recipe_app/core/presentation/components/big_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/filter_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/input_field.dart';
+import 'package:flutter_recipe_app/core/presentation/components/medium_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/rating_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/rating_dialog.dart';
+import 'package:flutter_recipe_app/core/presentation/components/small_button.dart';
+import 'package:flutter_recipe_app/core/presentation/components/two_tab.dart';
+import 'package:flutter_recipe_app/data/repository/mock_bookmark_repository_impl.dart';
+import 'package:flutter_recipe_app/data/repository/mock_recipe_repository_impl.dart';
+import 'package:flutter_recipe_app/domain/model/recipe.dart';
+import 'package:flutter_recipe_app/domain/use_case/get_saved_recipes_use_case.dart';
+import 'package:flutter_recipe_app/presentation/saved_recipes/saved_recipes_screen.dart';
+import 'package:flutter_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:flutter_recipe_app/ui/text_styles.dart';
 
 void main() {
@@ -21,9 +28,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.light(),
+        scaffoldBackgroundColor: Colors.white,
+        useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: FutureBuilder<List<Recipe>>(
+        future:
+            GetSavedRecipesUseCase(
+              recipeRepository: MockRecipeRepositoryImpl(),
+              bookmarkRepository: MockBookmarkRepositoryImpl(),
+            ).execute(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final recipes = snapshot.data!;
+
+          return SavedRecipesScreen(recipes: recipes);
+        },
+      ),
     );
   }
 }
@@ -37,7 +60,31 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(title: Text('Component', style: TextStyles.largeTextBold)),
       body: ListView(
         children: [
-          TwoTab(labels: ['label 1', 'label 2'], selectedIndex: 1),
+          ElevatedButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (_) {
+                  return RatingDialog(
+                    title: 'Rate recipe',
+                    score: 3,
+                    actionName: 'send',
+                    onChange: (score) {
+                      print(score);
+                    },
+                  );
+                },
+              );
+            },
+            child: const Text('Rating Dialog'),
+          ),
+          TwoTab(
+            labels: ['label 1', 'label 2'],
+            selectedIndex: 0,
+            onChange: (int index) {
+              print('Two Tab : $index');
+            },
+          ),
           const RatingButton('rate'),
           const RatingButton('rate', isSelected: true),
           const FilterButton('text'),
