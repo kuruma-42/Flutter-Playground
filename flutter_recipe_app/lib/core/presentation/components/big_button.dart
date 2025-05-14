@@ -42,8 +42,8 @@ class _BigButtonState extends State<BigButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 114,
+            SizedBox(
+              width: 130,
               child: Text(
                 widget.text,
                 // Copy With가 런타임에 빌드가 되기 때문에 성능이 떨어질 수 있다.
