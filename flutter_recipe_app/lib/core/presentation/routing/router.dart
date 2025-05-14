@@ -10,17 +10,28 @@ import 'package:flutter_recipe_app/presentation/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  // initialLocation: '/Splash',
-  initialLocation: '/SignUp',
+  initialLocation: '/Splash',
   routes: [
-    GoRoute(path: '/SignUp', builder: (context, state) => const SignUpScreen()),
+    GoRoute(
+      path: '/SignUp',
+      builder:
+          (context, state) =>
+              SignUpScreen(onTapSignIn: () => context.go('/SignIn')),
+    ),
     GoRoute(
       path: '/Splash',
       builder:
           (context, state) =>
               SplashScreen(onTapStartCooking: () => context.go('/SignIn')),
     ),
-    GoRoute(path: '/SignIn', builder: (context, state) => const SignInScreen()),
+    GoRoute(
+      path: '/SignIn',
+      builder:
+          (context, state) => SignInScreen(
+            onTapSignUp: () => context.go('/SignUp'),
+            onTapSignIn: () => context.go('/SavedRecipes'),
+          ),
+    ),
     GoRoute(
       path: '/SavedRecipes',
       builder:

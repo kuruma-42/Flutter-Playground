@@ -8,11 +8,6 @@ import 'package:flutter_recipe_app/core/presentation/components/rating_dialog.da
 import 'package:flutter_recipe_app/core/presentation/components/small_button.dart';
 import 'package:flutter_recipe_app/core/presentation/components/two_tab.dart';
 import 'package:flutter_recipe_app/core/presentation/routing/router.dart';
-import 'package:flutter_recipe_app/data/repository/mock_bookmark_repository_impl.dart';
-import 'package:flutter_recipe_app/data/repository/mock_recipe_repository_impl.dart';
-import 'package:flutter_recipe_app/domain/model/recipe.dart';
-import 'package:flutter_recipe_app/domain/use_case/get_saved_recipes_use_case.dart';
-import 'package:flutter_recipe_app/presentation/saved_recipes/saved_recipes_screen.dart';
 import 'package:flutter_recipe_app/ui/text_styles.dart';
 
 void main() {

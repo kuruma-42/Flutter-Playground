@@ -5,7 +5,9 @@ import 'package:flutter_recipe_app/ui/color_styles.dart';
 import 'package:flutter_recipe_app/ui/text_styles.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+  final void Function() onTapSignIn;
+
+  const SignUpScreen({super.key, required this.onTapSignIn});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -106,10 +108,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       "Already a member? ",
                       style: TextStyles.smallerTextBold,
                     ),
-                    Text(
-                      'Sign In',
-                      style: TextStyles.smallerTextBold.copyWith(
-                        color: ColorStyles.secondary100,
+                    GestureDetector(
+                      onTap: widget.onTapSignIn,
+                      child: Text(
+                        'Sign In',
+                        style: TextStyles.smallerTextBold.copyWith(
+                          color: ColorStyles.secondary100,
+                        ),
                       ),
                     ),
                   ],
