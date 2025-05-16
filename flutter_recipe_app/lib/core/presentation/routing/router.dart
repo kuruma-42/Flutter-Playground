@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_recipe_app/core/presentation/routing/route_paths.dart';
-import 'package:flutter_recipe_app/data/repository/mock_bookmark_repository_impl.dart';
-import 'package:flutter_recipe_app/data/repository/mock_recipe_repository_impl.dart';
-import 'package:flutter_recipe_app/domain/model/recipe.dart';
-import 'package:flutter_recipe_app/domain/use_case/get_saved_recipes_use_case.dart';
+import 'package:flutter_recipe_app/presentation/home/home_screen.dart';
+import 'package:flutter_recipe_app/presentation/notifications/notifications_screen.dart';
+import 'package:flutter_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:flutter_recipe_app/presentation/saved_recipes/screen/saved_recipes_root.dart';
-import 'package:flutter_recipe_app/presentation/saved_recipes/screen/saved_recipes_screen.dart';
 import 'package:flutter_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:flutter_recipe_app/presentation/sign_up/sign_up_screen.dart';
 import 'package:flutter_recipe_app/presentation/splash/splash_screen.dart';
@@ -35,9 +32,42 @@ final router = GoRouter(
             onTapSignIn: () => context.go(RoutePaths.savedRecipes),
           ),
     ),
-    GoRoute(
-      path: RoutePaths.savedRecipes,
-      builder: (context, state) => SavedRecipesRoot(),
+    StatefulShellRoute.indexedStack(
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: RoutePaths.home,
+              builder: (context, state) => const HomeScreen(),
+            ),
+          ],
+        ),
+
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: RoutePaths.savedRecipes,
+              builder: (context, state) => SavedRecipesRoot(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: RoutePaths.notification,
+              builder: (context, state) => const NotificationsScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: RoutePaths.profile,
+              builder: (context, state) => const ProfileScreen(),
+            ),
+          ],
+        ),
+      ],
     ),
   ],
 );
