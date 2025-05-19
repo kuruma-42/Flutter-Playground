@@ -1,5 +1,6 @@
 import 'package:flutter_recipe_app/core/presentation/routing/route_paths.dart';
 import 'package:flutter_recipe_app/presentation/home/home_screen.dart';
+import 'package:flutter_recipe_app/presentation/main/main_screen.dart';
 import 'package:flutter_recipe_app/presentation/notifications/notifications_screen.dart';
 import 'package:flutter_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:flutter_recipe_app/presentation/saved_recipes/screen/saved_recipes_root.dart';
@@ -33,6 +34,15 @@ final router = GoRouter(
           ),
     ),
     StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) {
+        return MainScreen(
+          body: navigationShell,
+          currentPageIndex: navigationShell.currentIndex,
+          onChangeIndex: (index) {
+            navigationShell.goBranch(index);
+          },
+        );
+      },
       branches: [
         StatefulShellBranch(
           routes: [
@@ -42,7 +52,6 @@ final router = GoRouter(
             ),
           ],
         ),
-
         StatefulShellBranch(
           routes: [
             GoRoute(
