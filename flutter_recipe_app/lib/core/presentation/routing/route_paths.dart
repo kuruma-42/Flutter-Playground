@@ -6,4 +6,5 @@ abstract class RoutePaths {
   static const String savedRecipes = '/SavedRecipes';
   static const String profile = '/Profile';
   static const String notification = '/notification';
+  static const String test = '/test';
 }

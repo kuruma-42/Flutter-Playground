@@ -1,4 +1,6 @@
+import 'package:flutter_recipe_app/core/presentation/components/search_input_field.dart';
 import 'package:flutter_recipe_app/core/presentation/routing/route_paths.dart';
+import 'package:flutter_recipe_app/main.dart';
 import 'package:flutter_recipe_app/presentation/home/home_screen.dart';
 import 'package:flutter_recipe_app/presentation/main/main_screen.dart';
 import 'package:flutter_recipe_app/presentation/notifications/notifications_screen.dart';
@@ -12,6 +14,7 @@ import 'package:go_router/go_router.dart';
 final router = GoRouter(
   initialLocation: RoutePaths.splash,
   routes: [
+    GoRoute(path: RoutePaths.test, builder: (context, state) => MyHomePage()),
     GoRoute(
       path: RoutePaths.signUp,
       builder:
@@ -48,7 +51,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: RoutePaths.home,
-              builder: (context, state) => const HomeScreen(),
+              builder: (context, state) => const HomeScreen(name: 'Drake'),
             ),
           ],
         ),
