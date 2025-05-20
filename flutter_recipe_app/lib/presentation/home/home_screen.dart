@@ -42,15 +42,21 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Row(children: [SearchInputField(placeHolder: 'Search Recipe')]),
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorStyles.secondary40,
-              ),
+            SizedBox(height: 30),
+            Row(
+              children: [
+                Expanded(child: SearchInputField(placeHolder: 'Search Recipe')),
+                SizedBox(width: 10),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: ColorStyles.primary100,
+                  ),
+                  child: Icon(Icons.tune, color: ColorStyles.white),
+                ),
+              ],
             ),
           ],
         ),

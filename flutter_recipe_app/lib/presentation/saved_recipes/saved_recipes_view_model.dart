@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recipe_app/domain/model/recipe.dart';
 import 'package:flutter_recipe_app/domain/use_case/get_saved_recipes_use_case.dart';
 import 'package:flutter_recipe_app/presentation/saved_recipes/saved_recipes_state.dart';
 
