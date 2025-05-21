@@ -1,4 +1,4 @@
-import 'package:bloc_clean_coding/views/home/home_screen.dart';
+import 'package:bloc_clean_coding/config/routes/route_name.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,14 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: TextButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return const HomeScreen();
-              },
-            ),
-          );
+          Navigator.pushNamed(context, RoutesName.homeScreen);
         },
         child: Text('Home'),
       ),
