@@ -1,3 +1,5 @@
+import 'package:bloc_clean_coding/config/routes/route_name.dart';
+import 'package:bloc_clean_coding/config/routes/routes.dart';
 import 'package:bloc_clean_coding/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      initialRoute: RoutesName.splashScreen,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
