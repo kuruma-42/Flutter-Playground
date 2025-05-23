@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_timer/ticker.dart';
 
 part 'timer_event.dart';
@@ -9,16 +11,17 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   final Ticker _ticker;
   static const int _duration = 60;
 
-  StreamSubscription<int>? _tickerSubscription;
-
   TimerBloc({required Ticker ticker})
       : _ticker = ticker,
-        super(TimerInitial(_duration)) {
+        super(const TimerInitial(_duration)) {
     on<TimerStarted>(_onStarted);
     on<TimerPaused>(_onPaused);
     on<TimerResumed>(_onResumed);
+    on<TimerReset>(_onReset);
     on<_TimerTicked>(_onTicked);
   }
+
+  StreamSubscription<int>? _tickerSubscription;
 
   @override
   Future<void> close() {
@@ -48,11 +51,16 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     }
   }
 
+  void _onReset(TimerReset event, Emitter<TimerState> emit) {
+    _tickerSubscription?.cancel();
+    emit(const TimerInitial(_duration));
+  }
+
   void _onTicked(_TimerTicked event, Emitter<TimerState> emit) {
     emit(
       event.duration > 0
           ? TimerRunInProgress(event.duration)
-          : TimerRunComplete(),
+          : const TimerRunComplete(),
     );
   }
 }
