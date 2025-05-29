@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_infinite_list/posts/view/post_page.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(body: Center(child: Text('Hello, world!'))),
-    );
-  }
+class App extends MaterialApp {
+  const App({super.key}) : super(home: const PostsPage());
 }
