@@ -2,6 +2,9 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_login/authentication/bloc/bloc/authentication_bloc.dart';
+import 'package:flutter_login/login/view/home_page.dart';
+import 'package:flutter_login/login/view/login_page.dart';
+import 'package:flutter_login/splash/view/splash_page.dart';
 import 'package:user_repository/user_repository.dart';
 
 class App extends StatelessWidget {
@@ -15,6 +18,7 @@ class App extends StatelessWidget {
           create: (_) => AuthenticationRepository(),
           dispose: (repository) => repository.dispose(),
         ),
+        RepositoryProvider(create: (_) => UserRepository()),
       ],
       child: BlocProvider(
         lazy: false,
@@ -51,14 +55,16 @@ class _AppViewState extends State<AppView> {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
                 _navigator.pushAndRemoveUntil<void>(
-                  Homepage.route(),
+                  HomePage.route(),
                   (route) => false,
                 );
+                break;
               case AuthenticationStatus.unauthenticated:
                 _navigator.pushAndRemoveUntil<void>(
                   LoginPage.route(),
                   (route) => false,
                 );
+                break;
               case AuthenticationStatus.unknown:
                 break;
             }
