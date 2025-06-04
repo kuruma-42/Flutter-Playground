@@ -1,0 +1,16 @@
+name: network_foundation
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  platform: 
+    path: ../../shared/platform
+
