@@ -1,9 +1,9 @@
-name: repository_data
+name: persistence_foundation
+description: "A new Flutter package project."
 version: 0.0.1
 
 environment:
   sdk: ^3.7.0
-
 dependencies:
   flutter:
     sdk: flutter

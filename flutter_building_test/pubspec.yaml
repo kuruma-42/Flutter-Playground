@@ -1,5 +1,5 @@
-name: flutter_building_test
-publish_to: 'none' 
+name: flutter_building_test_root
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
@@ -7,9 +7,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.4.0 
+  dio: ^5.4.0
 
 workspace:
-  members:
-    - apps/**
-    - packages/**
+  - apps/flutter_building_test/
+  - packages/core/network_foundation
+  - packages/core/persistence_foundation
+  - packages/data/base_data
+  - packages/data/network_data
+  - packages/data/repository_data
+  - packages/domain/base_domain
+  - packages/domain/entity
+  - packages/domain/usecase
+  - packages/feature/auth_feature
+  - packages/feature/base_feature
+  - packages/feature/feed_feature
+  - packages/feature/home_feature
+  - packages/feature/my_page_feature
+  - packages/feature/notification_feature
+  - packages/feature/record_feature
+  - packages/shared/design_system
+  - packages/shared/global_third_party_library
+  - packages/shared/platform
+

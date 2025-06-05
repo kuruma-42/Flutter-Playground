@@ -1,11 +1,8 @@
 name: usecase
-description: "A new Flutter package project."
 version: 0.0.1
-homepage:
 
 environment:
   sdk: ^3.7.0
-  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
@@ -16,4 +13,4 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-flutter:
+resolution: workspace
