@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:persistence_foudation/persistence_foudation.dart';
+import 'package:persistence_foundation/persistence_foudation.dart';
 
 void main() {
   test('adds one to input values', () {

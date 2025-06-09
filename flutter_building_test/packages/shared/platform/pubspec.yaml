@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   
-  persistent_foundation: 
+  persistence_foundation: 
     path: ../../core/persistence_foundation
 
 dev_dependencies:
