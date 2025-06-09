@@ -1,6 +1,5 @@
 name: flutter_building_test
 publish_to: 'none' 
-
 version: 1.0.0+1
 
 environment:
@@ -9,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  home_feature: 
+    path: ../../packages/feature/home_feature
   cupertino_icons: ^1.0.8
 
 dev_dependencies:

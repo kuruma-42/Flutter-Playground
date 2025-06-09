@@ -1,5 +1,6 @@
 name: feed_feature
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
@@ -7,6 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  base_feature:
+    path: ../base_feature
+  my_page_feature:
+    path: ../my_page_feature
 
 dev_dependencies:
   flutter_test:

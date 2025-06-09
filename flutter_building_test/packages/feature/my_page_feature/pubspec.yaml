@@ -1,5 +1,6 @@
 name: my_page_feature
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
@@ -7,6 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  notification_feature:
+    path: ../notification_feature
+  
 
 dev_dependencies:
   flutter_test:

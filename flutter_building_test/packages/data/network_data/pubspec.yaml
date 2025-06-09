@@ -1,5 +1,6 @@
 name: network_data
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
@@ -7,6 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  base_data:
+    path: ../base_data
+  network_foundation: 
+    path: ../../core/network_foundation
 
 dev_dependencies:
   flutter_test:

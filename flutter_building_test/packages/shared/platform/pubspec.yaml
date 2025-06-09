@@ -1,5 +1,6 @@
 name: platform
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
@@ -7,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  persistent_foundation: 
+    path: ../../core/persistence_foundation
 
 dev_dependencies:
   flutter_test:

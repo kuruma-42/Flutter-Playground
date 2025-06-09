@@ -1,12 +1,14 @@
 name: persistence_foundation
-description: "A new Flutter package project."
 version: 0.0.1
+publish_to: 'none'
 
 environment:
   sdk: ^3.7.0
 dependencies:
   flutter:
     sdk: flutter
+  global_third_party_library:
+    path: ../../shared/global_third_party_library
 
 dev_dependencies:
   flutter_test:
