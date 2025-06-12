@@ -10,11 +10,11 @@ void main() async {
   final getUsersResponse = await networkManager.request(MyApi.getUsers);
   print("GET Users:\n${getUsersResponse.data}\n");
 
-  // // 특정 사용자 정보 가져오기
-  // final userDetailResponse = await networkManager.request(MyApi.getUserDetail);
-  // print("GET User Detail:\n${userDetailResponse.data}\n");
+  // 특정 사용자 정보 가져오기
+  final userDetailResponse = await networkManager.request(MyApi.getUserDetail);
+  print("GET User Detail:\n${userDetailResponse.data}\n");
 
-  // // 사용자 생성 (POST)
-  // final createUserResponse = await networkManager.request(MyApi.createUser);
-  // print("POST Create User:\n${createUserResponse.data}\n");
+  // 사용자 생성 (POST)
+  final createUserResponse = await networkManager.request(MyApi.createUser);
+  print("POST Create User:\n${createUserResponse.data}\n");
 }

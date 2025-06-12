@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:network_module_sample/network_foundation/network.dart';
 
 class Host {
+  // TODO: SecretClient를 추후에 구현해서 환경별로 baseURL을 바꿔준다. 
   static String get baseURL => "https://jsonplaceholder.typicode.com";
 }
 
