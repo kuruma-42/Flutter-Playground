@@ -6,7 +6,7 @@ class NetworkManager {
 
   Future<Response> request(MyApi api) async {
     try {
-      _dio.options.baseUrl = "https://jsonplaceholder.typicode.com";
+      _dio.options.baseUrl = api.baseUrl;
 
       final options = Options(
         method: api.method.name.toUpperCase(),
