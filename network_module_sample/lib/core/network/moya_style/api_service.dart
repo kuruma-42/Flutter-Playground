@@ -1,4 +1,4 @@
-import 'package:network_module_sample/network_foundation/network_interface.dart';
+import 'package:network_module_sample/core/network/moya_style/network_interface.dart';
 
 class Host {
   // TODO: SecretClient를 추후에 구현해서 환경별로 baseURL을 바꿔준다.
@@ -8,6 +8,9 @@ class Host {
 // HTTP Method Enum
 enum HttpMethod { get, post, put, delete }
 
+// enum을 extension해서 TargetType을 구현하는 것이 불가능하다.
+// enum을 Swift 처럼 사용하려고 하면 안 된다.
+// 테스트 겸 구현이지만, 목적에 맞는 도구인가 에 대한 고민이 필요하다.
 enum MyApi with TargetType {
   getUsers,
   getUserDetail,
@@ -61,5 +64,3 @@ enum MyApi with TargetType {
   @override
   Map<String, dynamic>? get queryParams => null;
 }
-
-extension MyApiExtension on MyApi {}

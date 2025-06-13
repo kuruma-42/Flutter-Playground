@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:network_module_sample/network_foundation/network_interface.dart';
+import 'package:network_module_sample/core/network/moya_style/network_interface.dart';
 
 class NetworkManager {
   final Dio _dio = Dio();

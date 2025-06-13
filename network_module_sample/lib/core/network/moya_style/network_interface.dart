@@ -1,4 +1,4 @@
-import 'package:network_module_sample/network_foundation/api_service.dart';
+import 'package:network_module_sample/core/network/moya_style/api_service.dart';
 
 mixin TargetType {
   String get baseUrl;
