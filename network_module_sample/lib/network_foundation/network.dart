@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'api_service.dart';
+import 'package:network_module_sample/network_foundation/network_interface.dart';
 
 class NetworkManager {
   final Dio _dio = Dio();
 
-  Future<Response> request(MyApi api) async {
+  Future<Response> request(TargetType api) async {
     try {
       _dio.options.baseUrl = api.baseUrl;
 
