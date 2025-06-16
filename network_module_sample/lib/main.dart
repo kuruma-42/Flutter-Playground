@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:network_module_sample/core/core_di.dart';
-import 'package:network_module_sample/data/%08data_di.dart';
+import 'package:network_module_sample/data/data_di.dart';
 import 'package:network_module_sample/domain/repository/task_repository.dart';
 
 void main() async {
