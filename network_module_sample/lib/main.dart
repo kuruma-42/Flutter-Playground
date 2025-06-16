@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:network_module_sample/core/di/di.dart';
-import 'package:network_module_sample/core/network/retrofit_style/dio_provider.dart';
-import 'package:network_module_sample/core/network/moya_style/api_service.dart';
-import 'package:network_module_sample/core/network/moya_style/network.dart';
-import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
-import 'package:network_module_sample/core/network/retrofit_style/network.dart';
+import 'package:network_module_sample/core/core_di.dart';
+import 'package:network_module_sample/data/%08data_di.dart';
+import 'package:network_module_sample/domain/repository/task_repository.dart';
 
-final logger = Logger();
-
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initDependencies();
-  // Retrofit-style network requests
-  getIt<RestClient>().getTasks().then((it) => logger.i(it));
+  await initCoreDI();
+  await initDataDI();
 
-  // Moya-style network requests
-  final networkManager = NetworkManager();
-  final getUsersResponse = await networkManager.request(MyApi.getUsers);
-  final userDetailResponse = await networkManager.request(MyApi.getUserDetail);
-  final createUserResponse = await networkManager.request(MyApi.createUser);
+  final repo = dataDI<TaskRepository>();
+  final tasks = await repo.fetchTasks();
+  print(tasks);
 }
