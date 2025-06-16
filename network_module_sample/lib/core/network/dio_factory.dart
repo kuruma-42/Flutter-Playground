@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class DioFactory {
+abstract interface class DioFactory {
   Dio create(String baseUrl);
 }
 
